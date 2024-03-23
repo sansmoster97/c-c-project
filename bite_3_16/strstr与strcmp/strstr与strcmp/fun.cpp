@@ -11,7 +11,6 @@ void replay(char* base,char* copy,char* str)
 	my_memcpy(str, a, N);
 
 }
-
 //模拟实现strncpy
 char* my_strncpy(char* base, char* copy, size_t size)
 {
@@ -41,17 +40,46 @@ char* my_strncat(char* base, char* copy, size_t size)
 	*ch = '\0';
 	return base;
 }
-
 //模拟实现memcpy
 char* my_memcpy(char* base, char* copy, size_t size)
 {
 	char* ch;
 	ch = base;
+
 	while (size--)
 	{
 		*ch = *copy;
 		ch++;
 		copy++;
+	}
+	return base;
+}
+//模拟实现memmove
+char* my_memmove(char* base, char* copy, size_t size)
+{
+	char* ch1;
+	ch1 = base;
+	char* ch2;
+	ch2 = copy;
+	if (ch1==ch2)
+	{
+		return base;
+	}
+	if (ch1 < ch2)
+	{
+		for (size_t i = 0; i < size; i++)
+		{
+			*ch1 = *ch2;
+			ch1++;
+			ch2++;
+		}
+	}
+	else 
+	{
+		for (size_t i = size; i > 0; i--)
+		{
+			base[i - 1] = copy[i - 1];
+		}
 	}
 	return base;
 }

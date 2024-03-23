@@ -34,7 +34,12 @@ int main() {
 	puts(my_memcpy(str, first, 50));
 	printf("对first与second进行memcpy操作：");
 	puts(my_memcpy(first, second, 50));
+	//模拟实现memmove
+	replay(first, second, str);
+	printf("对first与second进行memmove操作：");
+	puts(my_memmove(first, second, 50));
 
-	//
+
+
 	return 0;
 }
